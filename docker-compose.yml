@@ -1,0 +1,34 @@
+version: '3.8'
+services: 
+
+  mysqldb:
+    image: mysql:8.0
+    restart: always
+    env_file: ./.env
+    environment:
+      TZ: UTC
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+    ports:
+      - 3306:3306
+    volumes: 
+      - db-data:/var/lib/mysql
+  app:
+    image: ghcr.io/lincworld/dtu-pipeline:latest
+    depends_on:
+      - mysqldb
+    env_file: ./.env
+    environment:
+      TZ: UTC
+      LINC_ACCESS_TOKEN: $LINC_ACCESS_TOKEN
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      #Note: You can point to a different host but the database configured should be for exclusive use, because the app will create the necessary tables and that may cause conflicts.
+      MYSQL_HOST: mysqldb
+      LINC_DEVICES: $LINC_DEVICES
+    restart: always
+volumes: 
+  db-data:
