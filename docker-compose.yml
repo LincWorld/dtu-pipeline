@@ -15,6 +15,7 @@ services:
       - 3306:3306
     volumes: 
       - db-data:/var/lib/mysql
+
   app:
     image: ghcr.io/lincworld/dtu-pipeline:latest
     depends_on:
@@ -32,3 +33,9 @@ services:
     restart: always
 volumes: 
   db-data:
+    # Use the following to change where mysql stores data
+    # driver: local
+    # driver_opts:
+    #   type: 'none'
+    #   o: 'bind'
+    #   device: '/srv/db-data'
