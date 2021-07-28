@@ -1,5 +1,5 @@
 # dtu-pipeline
-## This Docker compose file consists of two containers.
+## This docker compose file consists of two containers.
 
 - MySQL Database
 
@@ -32,7 +32,7 @@
 ## Modifications in docker-compose.yml
 
 - You can edit the volumes section in the compose file to change the location of the volume.
-- You can change the `MYSQL_HOST` environment variable if you do want to use an existing MySQL instance instead of the one in the compose file.
+- You can change the `MYSQL_HOST` environment variable if you prefer using an existing MySQL instance instead of the one in the compose file.
 
 ## Running the app
 
