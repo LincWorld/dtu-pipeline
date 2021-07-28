@@ -9,7 +9,7 @@
 
     To fetch data from linc to the MySQL database.
 
-## The following environment variables can be configured through a .env file.
+## The following environment variables can be configured through an .env file.
 
     The password for mysql root user. Used by the mysql container.
     MYSQL_ROOT_PASSWORD
