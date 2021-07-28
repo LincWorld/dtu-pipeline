@@ -1,5 +1,5 @@
 # dtu-pipeline
-## This docker compose file consists of two containers.
+## This Docker compose file consists of two containers.
 
 - MySQL Database
 
